@@ -2,12 +2,14 @@ const express = require('express');
 const Movie = require('../models/Movie');
 const router = express.Router();
 
-router.get('/movie/:movieId', async(req, res, next) =>{
-    const {movieId} = req.params;
+router.get('/:movieId', async(req, res, next) =>{
+
     try {
-        const movie = await movies.findById(movieId);
+        const {movieId} = req.params;
+        console.log(req.params)
+        const movie = await Movie.findById(movieId);
         res.render('movies-details', movie)
-        res.json(movie)
+        console.log(movie)
     } catch (error) {
         next(error)
     }
