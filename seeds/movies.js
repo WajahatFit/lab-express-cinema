@@ -91,8 +91,10 @@ const movies = [
   .then(x => console.log(`connected to ${x.connection.name}`))
   .then(() =>{
     console.log('seed created')
-    return Movie.create(movies);
+    Movie.create(movies);
+    const {title, director, stars, image, description} = movies;
     
+    return 
   })
   .catch (e => console.log(e))
   .finally(() => {
